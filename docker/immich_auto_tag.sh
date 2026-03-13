@@ -58,7 +58,7 @@ do
     for entry in `env`
     do
         # check if env variable name begins with tag_POST_NAME_REGEX followed by a the current regex no and and equal sign
-        pattern=$(echo "^tag_NAME_POST_REGEX${regex_no}+=.+")
+        pattern=$(echo "^TAG_NAME_POST_REGEX${regex_no}+=.+")
         TEST=$(echo "${entry}" | grep -E "$pattern")
         if [ ! -z "${TEST}" ]; then
             value="${entry#*=}" # select everything after the first `=`
@@ -96,8 +96,8 @@ if [ ! -z "$base_tag_list"]; then
     args="$base_tag_list $args"
 fi
 
-if [ ! -z "$tag_LEVELS" ]; then
-    args="--tag-levels $tag_LEVELS $args"
+if [ ! -z "$TAG_LEVELS" ]; then
+    args="--tag-levels $TAG_LEVELS $args"
 fi
 
 if [ ! -z "$tag_name_post_regex_list" ]; then
@@ -127,7 +127,6 @@ fi
 if [ ! -z "$MODE" ]; then
     args="--mode \"$MODE\" $args"
 fi
-
 
 if [ ! -z "$path_filter_list" ]; then
     args="$path_filter_list $args"
