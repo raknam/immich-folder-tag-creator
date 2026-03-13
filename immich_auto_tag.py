@@ -379,9 +379,9 @@ def build_tag_list(asset_list : list[dict], root_path_list : list[str], base_tag
         asset_root_path = identify_root_path(asset_path, root_path_list)
         if not asset_root_path:
             continue
-        if len(base_tag_list) == 1:
+        if base_tag_list and len(base_tag_list) == 1:
             base_tag = base_tag_list[0].strip()
-        elif len(base_tag_list) > 1:
+        elif base_tag_list and len(base_tag_list) > 1:
             base_tag = base_tag_list[root_path_list.index(asset_root_path)].strip()
         # Chunks of the asset's path below root_path
         path_chunks = asset_path.replace(asset_root_path, '').split('/')
