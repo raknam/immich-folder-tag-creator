@@ -718,7 +718,7 @@ if is_integer(tag_levels) and tag_levels == 0:
     sys.exit(1)
 
 # Verify base tag
-if len(base_tags) > 1 and len(base_tags) != len(root_paths):
+if base_tags and len(base_tags) > 1 and len(base_tags) != len(root_paths):
     logging.error("Number of base tags must be 1 or equal to the number of root paths")
     parser.print_help()
     sys.exit(1)
